@@ -135,6 +135,10 @@ pause;
   h.Z=G.Z;
   h.q=G.q;
   h.filt=ones(22,360);
+
+disp('Hello World')
 endfunction
+
+
 
 
