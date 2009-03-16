@@ -1,7 +1,7 @@
 function H=ReconstHoloSphere(r,thres,phres,h)
 
 // Image processing procedures
-//  h=BgElHolo(h);
+  h=BgElHolo(h);
   H.hh=h.h;
 
   H.name='ReconstHoloSphere';
