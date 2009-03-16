@@ -6,8 +6,8 @@
 //    non-harmonic background around 1 * (1 + holographic oscillation)
 // inputs: 
 //  h is a structure of hologram
-//  phfilt is the lowest frequency to cut out in ph direction
-//  varargin(1) is the lowest frequency to cut out in th direction
+//  phfilt is the highest frequency to cut out in ph direction
+//  varargin(1) is the highest frequency to cut out in th direction
 //  varargin(2) the order of cutting out default is 1 (ph-th), -1 is th-ph,
   
 
@@ -15,7 +15,7 @@ function h=FourBgHolo(h_old,phfilt,varargin)
   
   order=1;
   this=0;
-  h=h_hold;
+  h=h_old;
   select length(varargin)
     case 2 then
       h.history=AddHistory('','FourBgHolo',h_old,phfilt,varargin(1),varagin(2));
@@ -40,6 +40,7 @@ function h=FourBgHolo(h_old,phfilt,varargin)
     if order==1 then
       tmp=mean(tmphh,'r');
       ftmp=fft(tmp,-1);
+      pause;
       ftmp(1,phfilt+2:ss(2)-phfilt)=0;
       fftmp=fft(ftmp,1);
       h.h=h.h./(ones(ss(1),1)*fftmp);
