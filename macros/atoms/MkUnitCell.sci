@@ -26,6 +26,7 @@ function unitcell=MkUnitCell(name,varargin)
 
       unitcell.ats=[0 0 0 1 1;0.5 0.5 0 1 1;0 0.5 0.5 1 1;0.5 0 0.5 1 1];
       unitcell.atn.nums=[1 2 3 4];
+      unitcell.atn.num=1;
       unitcell.atn.name='element';
       unitcell.vec=[1 0 0;0 1 0;0 0 1];
     case 'Pb'
