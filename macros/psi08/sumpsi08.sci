@@ -20,11 +20,30 @@ function M=sumpsi08()
   modelled=ConstHolo(ats,1.18,G)
   hmod=modelled.hmod;
   
+
+  tmph=zeros(22,360);
+  tmphfilt=tmph;
+  tmphmod=tmph;
+  tmphn=tmph;
+
+// intensity over monitor cnt
+  i1=zeros(3,360);
+  i1n=i1;
+  i1m=i1;
+  i1(1,:)=sum(ints.int1.ints(35:37,:),'r')./sum(ints.int1.mons(35:37,:),'r');
+  i1(2,:)=sum(ints.int1.ints(38:40,:),'r')./sum(ints.int1.mons(38:40,:),'r');
+  i1(3,:)=sum(ints.int1.ints(41:42,:),'r')./sum(ints.int1.mons(41:42,:),'r');
+  
+// relative noise
+  i1nr(1,:)=sum(ints.int1.ints(35:37,:),'r').^-1+sum(ints.int1.mons(35:37,:),'r').^-1;
+  i1nr(2,:)=sum(ints.int1.ints(38:40,:),'r').^-1+sum(ints.int1.mons(38:40,:),'r').^-1;
+  i1nr(3,:)=sum(ints.int1.ints(41:42,:),'r').^-1+sum(ints.int1.mons(41:42,:),'r').^-1;
  //tmph=zeros(22,360);
  // tmphfilt=tmph;
  // tmphmod=tmph;
  // tmphn=tmph;
 //pause;
+
 
 ////////////////////////////////FIRST MEASUREMENT /////////////////////////////////////
 //// intensity over monitor cnt
@@ -175,7 +194,7 @@ i3=ints.int3.ints(36:1:49,1:90)./ints.int3.mons(36:1:49,1:90);
    M.h3.mon=ints.int3.mons(36:1:49,1:90);
    M.h3.status='measurement';
    M.h3.operations='divide by monitor;';
- 
+
 
   //G=MakeGrid(1.18,3,1,90,147,210,U);
   //h.h=tmph./tmphfilt;
