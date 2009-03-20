@@ -2,6 +2,11 @@
 // marko@szfki.hu
 // 
 // Function MkRecArray(dim,res,r,[orig,[T]])
+// dim: space dimension of the reconstruction grid
+// res: resolution of the grid
+// r: 1,2 of 3 dimensional vector with the sizes of the grid (0 means grid on a sphere)
+// orig: origin of the grid
+// T: rotation matrix
 
 function atsarr=MkRecArray(dim,res,r,varargin);
   
