@@ -40,7 +40,6 @@ function h=FourBgHolo(h_old,phfilt,varargin)
     if order==1 then
       tmp=mean(tmphh,'r');
       ftmp=fft(tmp,-1);
-      pause;
       ftmp(1,phfilt+2:ss(2)-phfilt)=0;
       fftmp=fft(ftmp,1);
       h.h=h.h./(ones(ss(1),1)*fftmp);
