@@ -19,6 +19,6 @@ function A=sotrrows(a,varargin);
     tmpa=gsort(tmpa,'lr');
   end;
   a=tmpa(:,ss(2)+1:$);
-endfunction;
+endfunction
 
-  
+
