@@ -16,7 +16,7 @@ function M=sumpsi08()
 // Calculating the model hologam
   G=MakeGrid(1.18,1,1,90,ints.thmin,ints.thmax,U);
   uc=MkUnitCell('PdH');
-  ats=AtomPosCalc(uc,5,2);
+  ats=AtomPosCalc(uc,11,2);
   modelled=ConstHolo(ats,1.18,G)
   hmod=modelled.hmod;
   
