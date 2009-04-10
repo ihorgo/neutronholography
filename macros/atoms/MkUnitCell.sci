@@ -20,15 +20,44 @@ function unitcell=MkUnitCell(name,varargin)
   unitcell.specel=0;
   
   select name
-    case 'FCC'
+    case 'CUBIC'
+      if length(varargin)==0
 // writing history;
-      unitcell.history=AddHistory('','MkUnitCell',name);
-
+        unitcell.history=AddHistory('','MkUnitCell',name);
+        a=1;
+      else
+        unitcell.history=AddHistory('','MkUnitCell',name,varargin(1));
+        a=varargin(1);
+      end;
+      unitcell.ats=[0 0 0 1 1];
+      unitcell.ats(5,1:5)=[0.5 0.5 0.5 0 2]
+      unitcell.ats(:,1:3)=unitcell.ats(:,1:3)*a;
+      unitcell.atn(1).nums=[1];
+      unitcell.atn(1).num=1;
+      unitcell.atn(1).name='element';
+      unitcell.atn(2).nums=[2];
+      unitcell.atn(2).num=2;
+      unitcell.atn(2).name='centre';
+      unitcell.vec=[1 0 0;0 1 0;0 0 1]*a;
+    case 'FCC'
+      if length(varargin)==0
+// writing history;
+        unitcell.history=AddHistory('','MkUnitCell',name);
+        a=1;
+      else
+        unitcell.history=AddHistory('','MkUnitCell',name,varargin(1));
+        a=varargin(1);
+      end;
       unitcell.ats=[0 0 0 1 1;0.5 0.5 0 1 1;0 0.5 0.5 1 1;0.5 0 0.5 1 1];
-      unitcell.atn.nums=[1 2 3 4];
-      unitcell.atn.num=1;
-      unitcell.atn.name='element';
-      unitcell.vec=[1 0 0;0 1 0;0 0 1];
+      unitcell.ats(5,1:5)=[0.5 0.5 0.5 0 2]
+      unitcell.ats(:,1:3)=unitcell.ats(:,1:3)*a;
+      unitcell.atn(1).nums=[1 2 3 4];
+      unitcell.atn(1).num=1;
+      unitcell.atn(1).name='element';
+      unitcell.atn(2).nums=[5];
+      unitcell.atn(2).num=2;
+      unitcell.atn(2).name='centre';
+      unitcell.vec=[1 0 0;0 1 0;0 0 1]*a;
     case 'Pb'
 // writing history;
       unitcell.history=AddHistory('','MkUnitCell',name);
