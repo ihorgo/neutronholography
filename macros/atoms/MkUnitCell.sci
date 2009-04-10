@@ -75,17 +75,17 @@ function unitcell=MkUnitCell(name,varargin)
       // writing history;
       unitcell.history=AddHistory('','MkUnitCell',name);
       
-      a=3.8907;
+      a=4;
       //Pd
       unitcell.ats(1:4,1:5)=[0, 0, 0, 9.401, 1;0.5*a, 0.5*a, 0, 9.401, 1;0, 0.5*a, 0.5*a, 9.401, 1;0.5*a, 0, 0.5*a, 9.401, 1];
       //H
-      unitcell.ats(5,1:5)=[0.5*a, 0.5*a, 0.5*a, -3.7409, 2];
+      unitcell.ats(5:8,1:5)=[0.5*a, 0.5*a, 0.5*a, -3.7409, 2;0.5*a, 0, 0, -3.7409, 2;0, 0.5*a, 0, -3.7409, 2;0, 0, 0.5*a, -3.7409, 2];
       
       unitcell.atn(1).nums=[1:4];
       unitcell.atn(1).num=1;
       unitcell.atn(1).name='Pd';
       
-      unitcell.atn(2).nums=5;
+      unitcell.atn(2).nums=[5:8];
       unitcell.atn(2).num=2;
       unitcell.atn(2).name='H';
       
