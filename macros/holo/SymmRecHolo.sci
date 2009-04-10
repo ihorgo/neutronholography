@@ -26,8 +26,6 @@ function H=SymmRecHolo(H_old,nsym)
       end;
     case 6 then
       for n=1:s(1)
-H_old.H(30,70,56)=max(abs(H_old.H));
-        disp(n,' 1');
         tmph=H_old.H(:,:,n);
         tmph=(tmph+tmph(1:s(1),s(2):-1:1)'+tmph(s(1):-1:1,1:s(2))'+tmph(s(1):-1:1,s(2):-1:1))/16;  
         tmph2=permute(H_old.H(:,n,:),[1,3,2]);
@@ -55,7 +53,6 @@ H_old.H(30,70,56)=max(abs(H_old.H));
       end;
     case 8 then
       for n=1:s(1)
-        disp(n,' 1');
         tmph=H.H(:,:,n);
         tmph=(tmph+tmph(1:s(1),s(2):-1:1)'+tmph(s(1):-1:1,1:s(2))'+tmph(s(1):-1:1,s(2):-1:1))/4;
         H.H(:,:,n)=tmph(:,:,1);
@@ -64,7 +61,6 @@ H_old.H(30,70,56)=max(abs(H_old.H));
         H.Hmod(:,:,n)=tmph(:,:,1);
       end;
       for n=1:s(2)
-        disp(n,' 2');
         tmph=permute(H.H(:,n,:),[1,3,2]);
         tmph=(tmph+tmph(1:s(1),s(2):-1:1)'+tmph(s(1):-1:1,1:s(2))'+tmph(s(1):-1:1,s(2):-1:1))/4;
         H.H(:,n,:)=permute(tmph(:,:,1),[1,3,2]);
@@ -73,7 +69,6 @@ H_old.H(30,70,56)=max(abs(H_old.H));
         H.Hmod(:,n,:)=permute(tmph(:,:,1),[1,3,2]);
       end;
       for n=1:s(3)
-        disp(n,' 3');
         tmph=permute(H.H(n,:,:),[2,3,1]);
         tmph=(tmph+tmph(1:s(1),s(2):-1:1)'+tmph(s(1):-1:1,1:s(2))'+tmph(s(1):-1:1,s(2):-1:1))/4;
         H.H(n,:,:)=permute(tmph(:,:,1),[3,1,2]);
