@@ -19,9 +19,10 @@ function Hf=FourFiltRec(H,rm,rM)
     pp2=(1+D3('sign',rm-rr))/2;
     filt=sign(pp+pp2);
 
-    filt2=filt([C(1):s(1),1:Cm(1)],[C(2):s(2),1:Cm(2)],[C(3):s(3),1:Cm(3)]);
-
+    filt2=1-filt([C(1):s(1),1:Cm(1)],[C(2):s(2),1:Cm(2)],[C(3):s(3),1:Cm(3)]);
+    Hf.fmeas=fhol;
     fhol=fhol.*filt2;
+    Hf.fmeasfilt=fhol;
     ffhol=matrix(fftw(fhol(1:sizes),1,s,steps),s);
 
     hol=hol-ffhol;
@@ -44,9 +45,10 @@ function Hf=FourFiltRec(H,rm,rM)
     pp2=(1+D3('sign',rm-rr))/2;
     filt=sign(pp+pp2);
 
-    filt2=filt([C(1):s(1),1:Cm(1)],[C(2):s(2),1:Cm(2)],[C(3):s(3),1:Cm(3)]);
-
+    filt2=1-filt([C(1):s(1),1:Cm(1)],[C(2):s(2),1:Cm(2)],[C(3):s(3),1:Cm(3)]);
+    Hf.fmod=fhol;
     fhol=fhol.*filt2;
+    Hf.fmodfilt=fhol;
     ffhol=matrix(fftw(fhol(1:sizes),1,s,steps),s);
 
     hol=hol-ffhol;
