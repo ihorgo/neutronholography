@@ -29,7 +29,7 @@ function H=ReconstHoloPt(h,r,varargin)
     end;
     H(swl+1,1)=sum(H(1:swl));
   else
-    H(1:swl+1)=0;
+    H(1:swl+1,1)=0;
   end;
   ierr=execstr('hol=h.hmod','errcatch');
   if ierr==0    
@@ -40,9 +40,9 @@ function H=ReconstHoloPt(h,r,varargin)
       end;
       H(n,2)=sum(hol(:,:,n).*exp(%i*(h.X(:,:,n)*r(1)+h.Y(:,:,n)*r(2)+h.Z(:,:,n)*r(3))));
     end;
-    H(swl+1,2)=sum(H(1:swl));
+    H(swl+1,2)=sum(H(1:swl,2));
   else
-    H(1:swl+2)=0;
+    H(1:swl+1,2)=0;
   end;
   
 endfunction

@@ -1,13 +1,22 @@
-function H=ReconstHoloArb(recarr,h)
+function H=ReconstHoloArb(recarr,h,varargin)
 
 // Image processing procedures
   h=BgElHolo(h);
   execstr('H.hh=h.h','errcatch');
   execstr('H.hhmod=h.hmod','errcatch');
-
+  
+  four=0;
+  if length(varargin)>0
+    four=varargin(1);
+    H.history=AddHistory('','ReconstHoloArb',recarr,h,varargin(1));
+  else
+    H.history=AddHistory('','ReconstHoloArb',recarr,h);
+  end;
+  
+  
+  
   H.name='ReconstHoloarb';
 
-  H.history=AddHistory('','ReconstHoloArb',recarr,h);
 
   
   H.hx=h.X;
@@ -32,15 +41,14 @@ function H=ReconstHoloArb(recarr,h)
   for nr=1:mr;
     for th=1:s(1);
       for ph=1:s(2);
-        tmp=ReconstHoloPt(h,[H.X(th,ph,nr),H.Y(th,ph,nr),H.Z(th,ph,nr)]);
+        tmp=ReconstHoloPt(h,[H.X(th,ph,nr),H.Y(th,ph,nr),H.Z(th,ph,nr)],four);
         if max(size(tmp))==2
           tmpH(th,ph,nr)=tmp(1,1);
           tmpHmod(th,ph,nr)=tmp(1,2);
         else
-          for n=1:max(size(tmp))-1
-            tmpHm(th,ph,nr,n)=tmp(n,1);
-            tmpHmmod(th,ph,nr,n)=tmp(n,2);
-          end;
+          swn=max(size(tmp))-1
+          tmpHm(th,ph,nr,1:swn)=tmp(1:swn,1);
+          tmpHmmod(th,ph,nr,1:swn)=tmp(1:swn,2);
           tmpH(th,ph,nr)=tmp($,1);
           tmpHmod(th,ph,nr)=tmp($,2);
         end;
