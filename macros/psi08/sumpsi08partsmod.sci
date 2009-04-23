@@ -1,4 +1,4 @@
-function M=sumpsi08parrtsmod()
+function M=sumpsi08partsmod()
   
   h.name='PSI_08_measurement_inside_detector';
   h.history=AddHistory('','sumpsi08','c:\mainsci\macros\psi08\allints.mat');
@@ -59,7 +59,7 @@ function M=sumpsi08parrtsmod()
  M.h1.X=G.X(3:3:66,:);
  M.h1.Y=G.Y(3:3:66,:);
  M.h1.Z=G.Z(3:3:66,:);
- M.h1.filt=M.h2.X*0+1;
+ M.h1.filt=M.h1.X*0+1;
  M.h1.hmod=hmod(3:3:66,:);                                
  M.h1.mon=ints.int2.mons(3:3:66,:);
  M.h1.status='measurement';
@@ -79,7 +79,7 @@ function M=sumpsi08parrtsmod()
  M.hC.X=G.X(3:3:66,:);
  M.hC.Y=G.Y(3:3:66,:);
  M.hC.Z=G.Z(3:3:66,:);
- M.hC.filt=M.h2.X*0+1;
+ M.hC.filt=M.h1.X*0+1;
  M.hC.hmod=hmod(3:3:66,:);                                
  M.hC.status='cubic model';
  M.hC.operations='modelled';
