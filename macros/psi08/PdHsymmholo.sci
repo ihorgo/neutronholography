@@ -1,14 +1,15 @@
 function HH=PdHsymmholo()
   
-  h=sumpsi08partsmod();
+  h=sumpsi08det();
   
-  h.h1=Four2DBgHolo(h.h1,5,1);
-  h.hC=Four2DBgHolo(h.hC,5,1);
-  h.hCc=Four2DBgHolo(h.hCc,5,1);
-  h.hFCC=Four2DBgHolo(h.hFCC,5,1);
-  h.hFCCc=Four2DBgHolo(h.hFCCc,5,1);
+//  h.h1=Four2DBgHolo(h.h1,5,1);
+  h.h1=FourBgHololine(h.h1,5);
+//  h.hC=Four2DBgHolo(h.hC,5,1);
+//  h.hCc=Four2DBgHolo(h.hCc,5,1);
+//  h.hFCC=Four2DBgHolo(h.hFCC,5,1);
+//  h.hFCCc=Four2DBgHolo(h.hFCCc,5,1);
   
-  save('c:\mainsci\macros\psi08\psipartsmod.dat',h);
+  save('c:\mainsci\macros\psi08\psidet.dat',h);
   mclose('all');
 
 //  load('c:\mainsci\macros\psi08\psipartsmod.dat');
@@ -18,15 +19,15 @@ function HH=PdHsymmholo()
   siz=[4/30*50,4/30*50,4/30*50/2];
   atsarr=MkRecArray(3,4/30,siz,[0,0,siz(3)]);
   H1=ReconstHoloArb(atsarr,h.h1,1);
-  save('c:\mainsci\macros\psi08\recpsiph1.dat',H1);
+  save('c:\mainsci\macros\psi08\recpsiph1line.dat',H1);
   clear H1;
   mclose('all');
 
-  load('c:\mainsci\macros\psi08\recpsiph1.dat');
+  load('c:\mainsci\macros\psi08\recpsiph1line.dat');
 //  H1s=SymmRecHolo(H1,24);
 //  save('c:\mainsci\macros\psi08\recpsiph1.dat',H1,H1s);
   H1s=HoloCubeSymm(H1,1);
-  save('c:\mainsci\macros\psi08\recpsiph1.dat',H1,H1s);
+  save('c:\mainsci\macros\psi08\recpsiph1line.dat',H1,H1s);
   HH.H=H1;
   HH.Hs=H1s;
   clear H1;
