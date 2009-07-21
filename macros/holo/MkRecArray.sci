@@ -28,8 +28,7 @@ function atsarr=MkRecArray(dim,res,r,varargin);
         if norm(T(n,:))>0
           T(n,:)=T(n,:)/norm(T(n,:));
         end;
-      end;
-      
+      end;    
   end;
   select max(size(r))
     case 1 then

@@ -44,6 +44,7 @@ function h=ConstHolo(ats,wl,varargin)
 // writing history;
 //      h.history=AddHistory('h.history','MakeGrid',wl,varargin(1),varargin(1));
     else
+      h.history=AddHistory('','ConstHolo',ats,wl,varargin(1));
       G=varargin(1);
     end;
   end;

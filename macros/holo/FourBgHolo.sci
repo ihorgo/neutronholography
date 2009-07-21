@@ -18,7 +18,7 @@ function h=FourBgHolo(h_old,phfilt,varargin)
   h=h_old;
   select length(varargin)
     case 2 then
-      h.history=AddHistory('','FourBgHolo',h_old,phfilt,varargin(1),varagin(2));
+      h.history=AddHistory('','FourBgHolo',h_old,phfilt,varargin(1),varargin(2));
       if varargin(2)==-1 then
         order=-1;
       end;
@@ -44,6 +44,7 @@ function h=FourBgHolo(h_old,phfilt,varargin)
       fftmp=fft(ftmp,1);
       h.h=h.h./(ones(ss(1),1)*fftmp);
     end;
+    tmphh=h.h;
   // if there is filtering in th direction 
     if this==1 then
       tmp=mean(tmphh,'c');
@@ -52,6 +53,7 @@ function h=FourBgHolo(h_old,phfilt,varargin)
       fftmp=fft(ftmp,1);
       h.h=h.h./(fftmp*ones(1,ss(2)));
     end;
+    tmphh=h.h;
   // if the order is reversse
     if order==-1 then
       tmp=mean(tmphh,'r');
@@ -60,6 +62,7 @@ function h=FourBgHolo(h_old,phfilt,varargin)
       fftmp=fft(ftmp,1);
       h.h=h.h./(ones(ss(1),1)*fftmp);
     end;
+    tmphh=h.h;
   end;
 
   ierr=execstr('tmphh=h_old.hmod','errcatch');
@@ -74,6 +77,7 @@ function h=FourBgHolo(h_old,phfilt,varargin)
       fftmp=fft(ftmp,1);
       h.hmod=h.hmod./(ones(ss(1),1)*fftmp);
     end;
+    tmphh=h.hmod;
   // if there is filtering in th direction 
     if this==1 then
       tmp=mean(tmphh,'c');
@@ -82,6 +86,7 @@ function h=FourBgHolo(h_old,phfilt,varargin)
       fftmp=fft(ftmp,1);
       h.hmod=h.hmod./(fftmp*ones(1,ss(2)));
     end;
+    tmphh=h.hmod;
   // if the order is reversse
     if order==-1 then
       tmp=mean(tmphh,'r');
@@ -90,6 +95,7 @@ function h=FourBgHolo(h_old,phfilt,varargin)
       fftmp=fft(ftmp,1);
       h.hmod=h.hmod./(ones(ss(1),1)*fftmp);
     end;
+    tmphh=h.hmod;
   end;
 endfunction
 

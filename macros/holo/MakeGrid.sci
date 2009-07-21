@@ -126,6 +126,7 @@ function G=MakeGrid(wl,thres,phres, om, varargin)
   deltateta(1,:)=theta2(2,:)-theta2(1,:);
   deltateta(tsize,:)=theta2(tsize,:)-theta2(tsize-1,:);
   G.q=abs(sin(theta2).*deltateta);
+  G.q=G.q/sum(G.q);
  
   
 endfunction

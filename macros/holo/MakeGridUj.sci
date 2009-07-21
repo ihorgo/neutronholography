@@ -9,7 +9,7 @@
 
 function G=MakeGridUj(wl,thres,phres,twotheta,omega,varargin)
  
-  G.name='MakeGrid';
+  G.name='MakeGridUj';
 
   k=2*%pi./wl;
   G.k=k;
