@@ -24,7 +24,7 @@ function unitcell=MkUnitCell(name,varargin)
       if length(varargin)==0
 // writing history;
         unitcell.history=AddHistory('','MkUnitCell',name);
-        a=1;
+        a=-1;
       else
         unitcell.history=AddHistory('','MkUnitCell',name,varargin(1));
         a=varargin(1);
@@ -43,7 +43,7 @@ function unitcell=MkUnitCell(name,varargin)
       if length(varargin)==0
 // writing history;
         unitcell.history=AddHistory('','MkUnitCell',name);
-        a=1;
+        a=-1;
       else
         unitcell.history=AddHistory('','MkUnitCell',name,varargin(1));
         a=varargin(1);
@@ -63,10 +63,10 @@ function unitcell=MkUnitCell(name,varargin)
       unitcell.history=AddHistory('','MkUnitCell',name);
 
       unitcell=MkUnitCell('FCC');
-      unitcell.ats(:,1:3)=unitcell.ats(:,1:3)*4.9508;
+      unitcell.ats(:,1:3)=unitcell.ats(:,1:3)*-4.9508;
       unitcell.ats(:,4)=9.401;
       unitcell.atn.name='Pb';
-      unitcell.vec=[1 0 0;0 1 0;0 0 1]*4.9508;
+      unitcell.vec=[1 0 0;0 1 0;0 0 1]*-4.9508;
     case 'NH4Cl'
 // writing history;
       unitcell.history=AddHistory('','MkUnitCell',name);
@@ -78,14 +78,14 @@ function unitcell=MkUnitCell(name,varargin)
       atc=[1 1 1;-1 -1 1;1 -1 -1;-1 1 -1];
       atc=atc*1.03/3^0.5;
       unitcell.ats(2:5,1:3)=atc;
-      unitcell.ats(2:5,4)=-3.7409/2;
+      unitcell.ats(2:5,4)=3.7409/2;
       unitcell.ats(2:5,5)=2;
       // H2
       unitcell.ats(6:9,1:3)=-1*atc;
-      unitcell.ats(6:9,4)=-3.7409/2;
+      unitcell.ats(6:9,4)=3.7409/2;
       unitcell.ats(6:9,5)=-2;
       // Cl
-      unitcell.ats(10,1:5)=[a/2,a/2,a/2,9.5792,3];
+      unitcell.ats(10,1:5)=[a/2,a/2,a/2,-9.5792,3];
       unitcell.atn(1).nums=1;
       unitcell.atn(1).num=1;
       unitcell.atn(1).name='N';
@@ -104,11 +104,12 @@ function unitcell=MkUnitCell(name,varargin)
       // writing history;
       unitcell.history=AddHistory('','MkUnitCell',name);
       
-      a=4;
+      a=4.04;
       //Pd
-      unitcell.ats(1:4,1:5)=[0, 0, 0, 9.401, 1;0.5*a, 0.5*a, 0, 9.401, 1;0, 0.5*a, 0.5*a, 9.401, 1;0.5*a, 0, 0.5*a, 9.401, 1];
+      unitcell.ats(1:4,1:5)=[0, 0, 0, -5.91, 1;0.5*a, 0.5*a, 0, -5.91, 1;0, 0.5*a, 0.5*a, -5.91, 1;0.5*a, 0, 0.5*a, -5.91, 1];
+      unitcell.ats(1:4,4)=unitcell.ats(1:4,4)/4;
       //H
-      unitcell.ats(5:8,1:5)=[0.5*a, 0.5*a, 0.5*a, -3.7409, 2;0.5*a, 0, 0, -3.7409, 2;0, 0.5*a, 0, -3.7409, 2;0, 0, 0.5*a, -3.7409, 2];
+      unitcell.ats(5:8,1:5)=[0.5*a, 0.5*a, 0.5*a, 3.7409, 2;0.5*a, 0, 0, 3.7409, 2;0, 0.5*a, 0, 3.7409, 2;0, 0, 0.5*a, 3.7409, 2];
       
       unitcell.atn(1).nums=[1:4];
       unitcell.atn(1).num=1;
