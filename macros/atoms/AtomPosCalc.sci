@@ -208,7 +208,6 @@ function ats=AtomPosCalc(unitcell,r,varargin)
   tmpats2(:,1)=round(sum(tmpats(:,1:3).^2,'c').^0.5*1e8);
   tmpats2=sortrowsf(tmpats2,[1,6,2,3,4],6,'i');
   tmpats=tmpats2(:,2:6);
-pause;
   atn=1;
   tmp(1,1:5)=tmpats(1,1:5);
   for n=2:atnum
@@ -222,7 +221,6 @@ pause;
   tmp(:,6)=sum(tmp(:,1:3).^2,'c').^0.5;
   tmp(:,7)=tmp(:,4)./tmp(:,6);
   ats.ats=sortrowsf(tmp,[6,5,1,2,3],6,'i');
-pause;
 endfunction
             
             
